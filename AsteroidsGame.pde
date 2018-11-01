@@ -20,10 +20,10 @@ public void draw()
 
 public void keyPressed(){
   if(key == ' '){
-    s.setDirectionX((int)Math.random()*500);
-    s.setDirectionY((int)Math.random()*500);
-    s.setX((int)Math.random()*500);
-    s.setY((int)Math.random()*500);
+    s.setDirectionX((int)(Math.random()*500));
+    s.setDirectionY((int)(Math.random()*500));
+    s.setX((int)(Math.random()*500));
+    s.setY((int)(Math.random()*500));
   }
   if(key == 'w'){
     s.accelerate(1.0);
