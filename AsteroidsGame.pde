@@ -20,8 +20,7 @@ public void draw()
 
 public void keyPressed(){
   if(key == ' '){
-    s.setDirectionX((int)(Math.random()*500));
-    s.setDirectionY((int)(Math.random()*500));
+    s.setPointDirection((int)(Math.random()*360));
     s.setX((int)(Math.random()*500));
     s.setY((int)(Math.random()*500));
   }
