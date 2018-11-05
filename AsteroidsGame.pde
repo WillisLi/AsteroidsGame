@@ -19,6 +19,7 @@ public void draw()
     nightSky[i].show();
   }
   for(int i = 0; i < a.length; i++){
+    a[i].show();
     a[i].move();
   }
   s.show();
