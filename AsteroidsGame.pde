@@ -1,26 +1,26 @@
 Spaceship s;
-Asteroid[] a = new Asteroid[10];
-Star[] nightSky = new Star[200];
+ArrayList<Asteroid> a = new ArrayList<Asteroid>(10);
+ArrayList<Star> nightSky = new ArrayList<Star>(200);
 public void setup() 
 {
   size(500,500);
   s = new Spaceship();
-  for(int i = 0; i < nightSky.length; i++){
-    nightSky[i] = new Star();
+  for(int i = 0; i < nightSky.size(); i++){
+    nightSky.add(new Star());
   }
-  for(int i = 0; i < a.length; i++){
-    a[i] = new Asteroid();
+  for(int i = 0; i < a.size(); i++){
+    a.add(new Asteroid());
   }
 }
 public void draw() 
 {
   background(0);
-  for(int i = 0; i < nightSky.length; i++){
-    nightSky[i].show();
+  for(int i = 0; i < nightSky.size(); i++){
+    nightSky.get(i).show();
   }
-  for(int i = 0; i < a.length; i++){
-    a[i].show();
-    a[i].move();
+  for(int i = 0; i < a.size(); i++){
+    a.get(i).show();
+    a.get(i).move();
   }
   s.show();
   s.move();
@@ -32,8 +32,6 @@ public void keyPressed(){
     s.setPointDirection((int)(Math.random()*360));
     s.setX((int)(Math.random()*500));
     s.setY((int)(Math.random()*500));
-    s.setDirectionX(0);
-    s.setDirectionY(0);
   }
   if(key == 'w'){
     s.accelerate(1.0);
