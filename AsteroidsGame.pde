@@ -19,12 +19,14 @@ public void draw()
     nightSky.get(i).show();
   }
   for(int i = 0; i < a.size(); i++){
-    a.get(i).show();
     a.get(i).move();
+    a.get(i).show();
+    float d = dist(s.getX(), s.getY(), a.get(i).getX(), a.get(i).getY());
+    if (d < 10)
+      a.remove(i);
   }
   s.show();
   s.move();
-
 }
 
 public void keyPressed(){
