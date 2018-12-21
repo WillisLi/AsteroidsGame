@@ -1,6 +1,7 @@
 Spaceship s;
 ArrayList<Asteroid> a = new ArrayList<Asteroid>();
 ArrayList<Star> nightSky = new ArrayList<Star>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 public void setup() 
 {
   size(500,500);
@@ -10,6 +11,9 @@ public void setup()
   }
   for(int i = 0; i < 15; i++){
     a.add(new Asteroid());
+  }
+  for(int i = 0; i < bullets.size(); i++){
+    bullets.add(new Bullet(s));  
   }
 }
 public void draw() 
@@ -27,6 +31,22 @@ public void draw()
   }
   s.show();
   s.move();
+  for(int i = 0; i < bullets.size(); i++){
+    bullets.get(i).show();
+    bullets.get(i).move();
+    if(bullets.get(i).getX() == width || bullets.get(i).getY() == height || bullets.get(i).getY() == 0 || bullets.get(i).getX() == 0){
+      bullets.remove(i);
+      i--;
+    }
+    for(int j = 0; j < bullets.size(); j++){
+      float bulletDist = dist(bullets.get(j).getX(), bullets.get(j).getY(), a.get(j).getX(), a.get(j).getY());
+      if (bulletDist < 10){
+        bullets.remove(j);
+        a.remove(j);
+      }
+      break;
+    }
+   }
 }
 
 public void keyPressed(){
@@ -46,5 +66,8 @@ public void keyPressed(){
   }
   if(key == 'd'){
     s.turn(20);
+  }
+  if(key == 'e'){
+    bullets.add(new Bullet(s)); 
   }
 }
